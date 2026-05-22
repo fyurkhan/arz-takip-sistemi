@@ -1,0 +1,51 @@
+.il-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.il-input {
+  flex: 1;
+}
+
+.sabit-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.selected-location {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.location-icon {
+  font-size: 1.8rem;
+}
+
+.location-label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.location-value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.location-region {
+  font-size: 0.8rem;
+  color: #8b5cf6;
+}
