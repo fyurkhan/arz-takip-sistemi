@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Step1Location.css';
 
 const Step1Location = ({ onNext, setFormData, formData }) => {
-  const [il, setIl] = useState(formData.il || 'Niğde');
+  const [il] = useState(formData.il || 'Niğde');
   const [ilce, setIlce] = useState(formData.ilce || '');
 
   const handleNext = () => {

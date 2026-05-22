@@ -16,7 +16,8 @@ const Login = ({ onLogin }) => {
     setError('');
 
     if (isRegister) {
-      const { data, error: signUpError } = await supabase.auth.signUp({
+      // Kayıt işlemi
+      const { error: signUpError } = await supabase.auth.signUp({
         email,
         password,
         options: {
@@ -34,16 +35,17 @@ const Login = ({ onLogin }) => {
         setFullName('');
       }
     } else {
-      const { data, error: signInError } =
-        await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
+      // Giriş işlemi
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
       if (signInError) {
         setError(signInError.message);
       } else {
-        onLogin(data.user);
+        // Giriş başarılı - session otomatik olarak App.js'de yakalanacak
+        window.location.reload(); // Sayfayı yenile, App.js session'ı alsın
       }
     }
     setLoading(false);
