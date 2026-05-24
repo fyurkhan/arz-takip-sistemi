@@ -6,7 +6,8 @@ import './Step4List.css';
 const Step4List = ({ formData, onReset, user }) => {
   const [kayitlar, setKayitlar] = useState([]);
   const [loading, setLoading] = useState(true);
-  const kaydedildiMi = useRef(false); // 👈 TEKRAR KAYDI ENGELLEMEK İÇİN
+  const kaydedildiMi = useRef(false);
+  const sonKayitRef = useRef(null); // Son kaydedilen veriyi tut
 
   // Veritabanından kayıtları çek
   const fetchKayitlar = async () => {
@@ -32,13 +33,20 @@ const Step4List = ({ formData, onReset, user }) => {
   // Yeni kayıt eklendiğinde veritabanına kaydet (SADECE 1 KERE)
   useEffect(() => {
     const saveToDatabase = async () => {
-      // Eğer daha önce kaydedildiyse veya form boşsa çık
-      if (kaydedildiMi.current) return;
+      // Form boşsa çık
       if (!formData.firmaAdi || formData.firmaAdi === '') return;
       if (!user) return;
 
-      // Kaydedildi olarak işaretle (tekrar kaydı engelle)
+      // Bu kaydın daha önce kaydedilip kaydedilmediğini kontrol et
+      const kayitAnahtari = `${formData.firmaAdi}_${formData.ilce}_${formData.maxKapasite}_${formData.guncelTon}_${formData.urunler.join(',')}`;
+
+      // Eğer aynı kayıt daha önce kaydedildiyse çık
+      if (sonKayitRef.current === kayitAnahtari) return;
+      if (kaydedildiMi.current) return;
+
+      // Kaydedildi olarak işaretle
       kaydedildiMi.current = true;
+      sonKayitRef.current = kayitAnahtari;
 
       const yeniKayit = {
         user_id: user.id,
@@ -59,19 +67,21 @@ const Step4List = ({ formData, onReset, user }) => {
       if (error) {
         console.error('Kayıt eklenirken hata:', error);
         alert('Kayıt eklenirken bir hata oluştu!');
-        // Hata olursa tekrar deneyebilmek için flag'i sıfırla
+        // Hata olursa flag'leri sıfırla
         kaydedildiMi.current = false;
+        sonKayitRef.current = null;
       } else {
         fetchKayitlar(); // Listeyi yenile
       }
     };
 
     saveToDatabase();
-  }, [formData, user]); // formData değiştiğinde çalışır, ama flag sayesinde 1 kere kaydeder
+  }, [formData, user]);
 
-  // Yeni Kayıt butonuna basıldığında flag'i sıfırla
+  // Yeni Kayıt butonuna basıldığında flag'leri sıfırla
   const handleReset = () => {
     kaydedildiMi.current = false;
+    sonKayitRef.current = null;
     onReset();
   };
 
