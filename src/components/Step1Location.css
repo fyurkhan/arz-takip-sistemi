@@ -9,22 +9,23 @@
 }
 
 .sabit-badge {
-  background: linear-gradient(135deg, #10b981, #059669);
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
   color: white;
   padding: 8px 16px;
-  border-radius: 30px;
+  border-radius: 40px;
   font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .selected-location {
-  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  border-radius: 16px;
+  background: linear-gradient(135deg, #f0ebdd, #e8e0cc);
+  border-radius: 20px;
   padding: 16px;
   display: flex;
   gap: 16px;
   margin-top: 24px;
+  border: 1px solid #d4c4a8;
 }
 
 .location-icon {
@@ -33,7 +34,7 @@
 
 .location-label {
   font-size: 0.7rem;
-  color: #6b7280;
+  color: #8b7a5a;
   letter-spacing: 1px;
   margin-bottom: 4px;
 }
@@ -41,11 +42,11 @@
 .location-value {
   font-weight: 700;
   font-size: 1rem;
-  color: #1f2937;
+  color: #2d3e2b;
   margin-bottom: 4px;
 }
 
 .location-region {
   font-size: 0.8rem;
-  color: #8b5cf6;
+  color: #f5a623;
 }

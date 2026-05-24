@@ -11,27 +11,29 @@
 
 .reports-header h1 {
   font-size: 2rem;
-  color: #1f2937;
+  background: linear-gradient(135deg, #f5e6a3, #c8a951);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin-bottom: 8px;
 }
 
 .reports-header p {
-  color: #6b7280;
+  color: #e8d5a3;
 }
 
 /* Filtre Kartı */
 .filter-card {
-  background: white;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #fffaf0, #fef5e7);
+  border-radius: 20px;
   padding: 24px;
   margin-bottom: 30px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(200, 180, 100, 0.3);
 }
 
 .filter-card h3 {
   margin-bottom: 16px;
-  color: #374151;
+  color: #2d3e2b;
 }
 
 .filter-grid {
@@ -45,22 +47,22 @@
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #4b5563;
+  color: #4a5b3e;
   margin-bottom: 6px;
 }
 
 .filter-group select {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border: 2px solid #e8dcc8;
+  border-radius: 12px;
   background: white;
   font-size: 0.9rem;
 }
 
-.filter-group select:disabled {
-  background: #f3f4f6;
-  color: #9ca3af;
+.filter-group select:focus {
+  outline: none;
+  border-color: #f5a623;
 }
 
 .filter-actions {
@@ -72,24 +74,25 @@
 }
 
 .btn-reset {
-  background: #f3f4f6;
-  border: none;
+  background: rgba(45, 62, 43, 0.08);
+  border: 1px solid #d4c4a8;
   padding: 8px 20px;
-  border-radius: 30px;
+  border-radius: 40px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
+  color: #4a5b3e;
 }
 
 .btn-reset:hover {
-  background: #e5e7eb;
+  background: rgba(45, 62, 43, 0.15);
 }
 
 .filter-info {
-  background: #f0fdf4;
+  background: #e8f5e9;
   padding: 8px 16px;
   border-radius: 30px;
-  color: #059669;
+  color: #2e7d32;
   font-weight: 500;
   font-size: 0.9rem;
 }
@@ -103,11 +106,12 @@
 }
 
 .reports-container .stat-card {
-  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  background: linear-gradient(135deg, #fffaf0, #fef5e7);
   border-radius: 20px;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
+  border: 1px solid rgba(200, 180, 100, 0.3);
 }
 
 .reports-container .stat-card:hover {
@@ -122,27 +126,30 @@
 .reports-container .stat-value {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #1f2937;
+  background: linear-gradient(135deg, #f5a623, #e8931e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .reports-container .stat-label {
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #6b5a3e;
   margin-top: 6px;
 }
 
 /* Rapor Bölümleri */
 .report-section {
-  background: white;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #fffaf0, #fef5e7);
+  border-radius: 20px;
   padding: 24px;
   margin-bottom: 30px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(200, 180, 100, 0.3);
 }
 
 .report-section h3 {
   margin-bottom: 20px;
-  color: #374151;
+  color: #2d3e2b;
   font-size: 1.2rem;
 }
 
@@ -155,7 +162,7 @@
 
 .urun-card {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 16px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -196,7 +203,7 @@
 
 .ilce-card {
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 16px;
 }
 
@@ -230,22 +237,22 @@
 .kayit-table th {
   text-align: left;
   padding: 14px;
-  background: #f9fafb;
-  color: #4b5563;
+  background: #f0ebdd;
+  color: #4a5b3e;
   font-weight: 600;
   font-size: 0.8rem;
-  border-bottom: 2px solid #e5e7eb;
+  border-bottom: 2px solid #d4c4a8;
 }
 
 .kayit-table td {
   padding: 12px 14px;
-  border-bottom: 1px solid #f3f4f6;
-  color: #374151;
+  border-bottom: 1px solid #e8dcc8;
+  color: #4a5b3e;
   font-size: 0.85rem;
 }
 
 .kayit-table tr:hover {
-  background: #f9fafb;
+  background: #fef9ef;
 }
 
 .mini-progress {
@@ -258,21 +265,21 @@
 .mini-progress-fill {
   height: 6px;
   width: 50px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: linear-gradient(90deg, #4caf50, #f5a623);
   border-radius: 10px;
 }
 
 .empty-message {
   text-align: center;
   padding: 40px;
-  color: #9ca3af;
+  color: #8b7a5a;
 }
 
 .loading {
   text-align: center;
   padding: 60px;
   font-size: 1.2rem;
-  color: #6b7280;
+  color: #e8d5a3;
 }
 
 @media (max-width: 768px) {
