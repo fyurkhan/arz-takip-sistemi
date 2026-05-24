@@ -1,8 +1,54 @@
 import React, { useState } from 'react';
 import './Step1Location.css';
 
+// İl ve ilçe verileri
+const ilceler = {
+  Niğde: ['Merkez', 'Bor', 'Ulukışla', 'Çiftlik', 'Çamardı', 'Altunhisar'],
+  Konya: [
+    'Selçuklu',
+    'Karatay',
+    'Meram',
+    'Beyşehir',
+    'Ereğli',
+    'Akşehir',
+    'Çumra',
+    'Seydişehir',
+    'Ilgın',
+    'Karapınar',
+    'Kulu',
+    'Cihanbeyli',
+    'Bozkır',
+    'Hadim',
+    'Taşkent',
+    'Hüyük',
+    'Kadınhanı',
+    'Sarayönü',
+    'Yunak',
+    'Doğanhisar',
+    'Derbent',
+    'Emirgazi',
+    'Güneysınır',
+    'Altınekin',
+    'Tuzlukçu',
+    'Halkapınar',
+    'Çeltik',
+    'Ahırlı',
+    'Yalıhüyük',
+  ],
+  Nevşehir: [
+    'Merkez',
+    'Ürgüp',
+    'Avanos',
+    'Gülşehir',
+    'Derinkuyu',
+    'Acıgöl',
+    'Kozaklı',
+    'Hacıbektaş',
+  ],
+};
+
 const Step1Location = ({ onNext, setFormData, formData }) => {
-  const [il] = useState(formData.il || 'Niğde');
+  const [il, setIl] = useState(formData.il || 'Niğde');
   const [ilce, setIlce] = useState(formData.ilce || '');
 
   const handleNext = () => {
@@ -12,6 +58,12 @@ const Step1Location = ({ onNext, setFormData, formData }) => {
     }
     setFormData((prev) => ({ ...prev, il, ilce }));
     onNext();
+  };
+
+  // İl değiştiğinde ilçeyi sıfırla
+  const handleIlChange = (e) => {
+    setIl(e.target.value);
+    setIlce('');
   };
 
   return (
@@ -24,20 +76,22 @@ const Step1Location = ({ onNext, setFormData, formData }) => {
 
       <div className='input-group'>
         <label>İl</label>
-        <div className='il-input-group'>
-          <input type='text' value={il} readOnly className='il-input' />
-          <span className='sabit-badge'>SABİT</span>
-        </div>
+        <select value={il} onChange={handleIlChange}>
+          <option value='Niğde'>Niğde</option>
+          <option value='Konya'>Konya</option>
+          <option value='Nevşehir'>Nevşehir</option>
+        </select>
       </div>
 
       <div className='input-group'>
         <label>İlçe</label>
         <select value={ilce} onChange={(e) => setIlce(e.target.value)}>
           <option value=''>-- İlçe Seçiniz --</option>
-          <option>Merkez</option>
-          <option>Bor</option>
-          <option>Ulukışla</option>
-          <option>Çiftlik</option>
+          {ilceler[il].map((ilceOption) => (
+            <option key={ilceOption} value={ilceOption}>
+              {ilceOption}
+            </option>
+          ))}
         </select>
       </div>
 
@@ -48,7 +102,11 @@ const Step1Location = ({ onNext, setFormData, formData }) => {
           <div className='location-value'>
             {ilce ? `${ilce}, ${il}` : 'İlçe seçilmedi'}
           </div>
-          <div className='location-region'>Türkiye - İç Anadolu Bölgesi</div>
+          <div className='location-region'>
+            {il === 'Niğde' && 'Türkiye - İç Anadolu Bölgesi'}
+            {il === 'Konya' && 'Türkiye - İç Anadolu Bölgesi'}
+            {il === 'Nevşehir' && 'Türkiye - Kapadokya Bölgesi'}
+          </div>
         </div>
       </div>
 

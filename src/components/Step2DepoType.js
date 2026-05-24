@@ -6,31 +6,26 @@ const depoTipleri = [
     id: 1,
     name: 'Yer Altı Deposu',
     desc: 'Toprak altında inşa edilmiş depolama alanı',
-    emoji: '⛏️',
   },
   {
     id: 2,
     name: 'Ev Altı Deposu',
     desc: 'Bina zemin katı altında bulunan depo',
-    emoji: '🏠',
   },
   {
     id: 3,
     name: 'Kara Depo',
     desc: 'Açık alanda yüzey üstü depolama yapısı',
-    emoji: '🏭',
   },
   {
     id: 4,
     name: 'Soğuk Hava Deposu',
     desc: 'Kontrollü sıcaklıkta soğutmalı depo',
-    emoji: '❄️',
   },
   {
     id: 5,
     name: 'Hangar',
     desc: 'Büyük çaplı açık yapılı hangar deposu',
-    emoji: '✈️',
   },
 ];
 

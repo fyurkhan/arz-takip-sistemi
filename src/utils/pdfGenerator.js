@@ -98,7 +98,6 @@ export const generateDepoPDF = async (kayit) => {
       <!-- Footer -->
       <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center; font-size: 9px; color: #9ca3af;">
         <div>Bu belge Arz Güvenliği Takip Sistemi tarafından otomatik olarak oluşturulmuştur.</div>
-        <div>Resmi kayıt niteliğindedir. Yetkisiz değişiklik yapılması yasaktır.</div>
         <div style="margin-top: 10px;">© 2026 Gevher & Positive Mühendislik Şirketler Grubu</div>
       </div>
     </div>
