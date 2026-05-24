@@ -5,12 +5,14 @@ import Step1Location from './components/Step1Location';
 import Step2DepoType from './components/Step2DepoType';
 import Step3Details from './components/Step3Details';
 import Step4List from './components/Step4List';
+import Reports from './components/Reports';
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState('kayit'); // 'kayit' veya 'rapor'
   const [formData, setFormData] = useState({
     il: 'Niğde',
     ilce: '',
@@ -57,6 +59,7 @@ function App() {
       urunler: [],
     });
     setStep(1);
+    setActiveTab('kayit');
   };
 
   const nextStep = () => setStep(step + 1);
@@ -128,57 +131,81 @@ function App() {
           </div>
         </div>
 
-        <div className='steps-indicator'>
-          {steps.map((s, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-              <div className='step-item'>
-                <div
-                  className={`step-circle ${step > i + 1 ? 'completed' : step === i + 1 ? 'active' : ''}`}
-                >
-                  {step > i + 1 ? '✓' : i + 1}
-                </div>
-                <div className={`step-label ${step === i + 1 ? 'active' : ''}`}>
-                  {s}
-                </div>
-              </div>
-              {i < steps.length - 1 && (
-                <div
-                  className={`step-line ${step > i + 1 ? 'completed' : ''}`}
-                />
-              )}
-            </div>
-          ))}
+        {/* Tab Menü */}
+        <div className='tab-menu'>
+          <button
+            className={`tab-btn ${activeTab === 'kayit' ? 'active' : ''}`}
+            onClick={() => setActiveTab('kayit')}
+          >
+            📝 Depo Kayıt
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'rapor' ? 'active' : ''}`}
+            onClick={() => setActiveTab('rapor')}
+          >
+            📊 Analiz & Rapor
+          </button>
         </div>
       </div>
 
-      <div className='app-main'>
-        {step === 1 && (
-          <Step1Location
-            onNext={nextStep}
-            setFormData={setFormData}
-            formData={formData}
-          />
-        )}
-        {step === 2 && (
-          <Step2DepoType
-            onNext={nextStep}
-            onBack={prevStep}
-            setFormData={setFormData}
-            formData={formData}
-          />
-        )}
-        {step === 3 && (
-          <Step3Details
-            onNext={nextStep}
-            onBack={prevStep}
-            setFormData={setFormData}
-            formData={formData}
-          />
-        )}
-        {step === 4 && (
-          <Step4List formData={formData} onReset={resetForm} user={user} />
-        )}
-      </div>
+      {activeTab === 'kayit' ? (
+        <>
+          <div className='steps-indicator'>
+            {steps.map((s, i) => (
+              <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
+                <div className='step-item'>
+                  <div
+                    className={`step-circle ${step > i + 1 ? 'completed' : step === i + 1 ? 'active' : ''}`}
+                  >
+                    {step > i + 1 ? '✓' : i + 1}
+                  </div>
+                  <div
+                    className={`step-label ${step === i + 1 ? 'active' : ''}`}
+                  >
+                    {s}
+                  </div>
+                </div>
+                {i < steps.length - 1 && (
+                  <div
+                    className={`step-line ${step > i + 1 ? 'completed' : ''}`}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className='app-main'>
+            {step === 1 && (
+              <Step1Location
+                onNext={nextStep}
+                setFormData={setFormData}
+                formData={formData}
+              />
+            )}
+            {step === 2 && (
+              <Step2DepoType
+                onNext={nextStep}
+                onBack={prevStep}
+                setFormData={setFormData}
+                formData={formData}
+              />
+            )}
+            {step === 3 && (
+              <Step3Details
+                onNext={nextStep}
+                onBack={prevStep}
+                setFormData={setFormData}
+                formData={formData}
+              />
+            )}
+            {step === 4 && (
+              <Step4List formData={formData} onReset={resetForm} user={user} />
+            )}
+          </div>
+        </>
+      ) : (
+        <Reports />
+      )}
     </div>
   );
 }
