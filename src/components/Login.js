@@ -56,7 +56,7 @@ const Login = ({ onLogin }) => {
       <div className='auth-card'>
         <div className='auth-header'>
           <div className='auth-icon'>🔐</div>
-          <h2>Arz Güvenliği Takip Sistemi</h2>
+          <h2>Gıda Arz Güvenliği Takip Sistemi</h2>
           <p>Gevher & Positive Mühendislik Şirketler Grubu</p>
         </div>
 
