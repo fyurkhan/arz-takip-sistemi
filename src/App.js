@@ -110,7 +110,7 @@ function App() {
           }}
         >
           <div>
-            <h1>Arz Güvenliği Takip Sistemi</h1>
+            <h1>Gıda Arz Güvenliği</h1>
             <p>Gevher & Positive Mühendislik Şirketler Grubu</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
