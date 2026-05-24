@@ -113,7 +113,17 @@ function App() {
             <img
               src='/logo.png'
               alt='Logo'
-              style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
+              style={{
+                height: '50px',
+                width: 'auto',
+                objectFit: 'contain',
+                cursor: 'pointer',
+              }}
+              onClick={() => {
+                setStep(1);
+                setActiveTab('kayit');
+                resetForm();
+              }}
             />
             <div>
               <h1>Gıda Arz Güvenliği Takip Sistemi</h1>
