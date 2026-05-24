@@ -106,14 +106,21 @@ function App() {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '16px',
+            gap: '30px',
           }}
         >
-          <div>
-            <h1>Gıda Arz Güvenliği</h1>
-            <p>Gevher & Positive Mühendislik Şirketler Grubu</p>
-          </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <img
+              src='/logo.png'
+              alt='Logo'
+              style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
+            />
+            <div>
+              <h1>Gıda Arz Güvenliği Takip Sistemi</h1>
+              <p>Gevher & Positive Mühendislik Şirketler Grubu</p>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <span
               style={{
                 color: 'white',

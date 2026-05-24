@@ -55,7 +55,11 @@ const Login = ({ onLogin }) => {
     <div className='auth-container'>
       <div className='auth-card'>
         <div className='auth-header'>
-          <div className='auth-icon'>🔐</div>
+          <img
+            src='/logo.png'
+            alt='Gıda Arz Güvenliği Logo'
+            style={{ width: '80px', height: 'auto', marginBottom: '8px' }}
+          />
           <h2>Gıda Arz Güvenliği Takip Sistemi</h2>
           <p>Gevher & Positive Mühendislik Şirketler Grubu</p>
         </div>

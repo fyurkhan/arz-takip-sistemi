@@ -6,26 +6,37 @@
 
 .il-input {
   flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #f0e8dc;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #2d3e2b;
+}
+
+.il-input:focus {
+  outline: none;
+  border-bottom-color: #40916c;
 }
 
 .sabit-badge {
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
-  color: white;
+  background: #e8f5e9;
+  color: #40916c;
   padding: 8px 16px;
   border-radius: 40px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .selected-location {
-  background: linear-gradient(135deg, #f0ebdd, #e8e0cc);
+  background: #fef9f0;
   border-radius: 20px;
-  padding: 16px;
+  padding: 20px;
   display: flex;
   gap: 16px;
-  margin-top: 24px;
-  border: 1px solid #d4c4a8;
+  margin-top: 28px;
+  border: 1px solid #f0e8dc;
 }
 
 .location-icon {
@@ -33,20 +44,21 @@
 }
 
 .location-label {
-  font-size: 0.7rem;
-  color: #8b7a5a;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a09880;
+  margin-bottom: 6px;
 }
 
 .location-value {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
   color: #2d3e2b;
   margin-bottom: 4px;
 }
 
 .location-region {
-  font-size: 0.8rem;
-  color: #f5a623;
+  font-size: 0.75rem;
+  color: #d4a373;
 }

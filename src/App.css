@@ -1,158 +1,145 @@
 .app-container {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  min-height: 100vh;
 }
 
+/* Header - okunabilir soft renk */
 .app-header {
-  text-align: center;
-  margin-bottom: 40px;
+  background: #9da051;
+  border-bottom: 1px solid #82ac67;
+  padding: 20px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .app-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #f5e6a3, #c8a951);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 8px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: 1px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d6a4f;
+  letter-spacing: -0.3px;
+  margin: 0;
 }
 
 .app-header p {
-  color: #e8d5a3;
-  font-size: 1rem;
-  font-weight: 500;
-  opacity: 0.9;
+  font-size: 0.75rem;
+  color: #5a7a4e;
+  margin-top: 4px;
 }
 
-/* Tab Menü */
+/* Tab Menu */
 .tab-menu {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 30px;
-  background: rgba(255, 248, 225, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 8px;
-  border-radius: 60px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid rgba(200, 180, 100, 0.3);
+  gap: 32px;
+  margin-top: 20px;
+  border-bottom: 1px solid #e0cccc;
+  padding-bottom: 12px;
 }
 
 .tab-btn {
-  padding: 12px 32px;
-  border-radius: 40px;
-  border: none;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
   background: transparent;
-  color: rgba(255, 248, 225, 0.8);
-  font-family: inherit;
+  border: none;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #794d4d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00046d;
+  transition: width 0.2s ease;
 }
 
 .tab-btn.active {
-  background: linear-gradient(135deg, #f5a623, #e8931e);
-  color: #1a3d19;
-  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+  color: #2d6a4f;
+}
+
+.tab-btn.active::after {
+  width: 100%;
 }
 
 .tab-btn:hover:not(.active) {
-  background: rgba(255, 248, 225, 0.25);
-  color: #f5e6a3;
+  color: #2d6a4f;
 }
 
 /* Step göstergesi */
 .steps-indicator {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-top: 30px;
-  background: rgba(255, 248, 225, 0.1);
-  backdrop-filter: blur(10px);
-  padding: 12px 24px;
-  border-radius: 60px;
-  display: inline-flex;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid rgba(200, 180, 100, 0.2);
+  justify-content: center;
+  gap: 0;
+  margin: 40px 0 32px;
+  padding: 0 20px;
 }
 
 .step-circle {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: rgba(255, 248, 225, 0.2);
-  color: #e8d5a3;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #ffffff;
+  color: #b0bec5;
+  border: 2px solid #e4e8f0;
+  transition: all 0.2s ease;
 }
 
 .step-circle.active {
-  background: linear-gradient(135deg, #f5a623, #e8931e);
-  color: #1a3d19;
-  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+  background: linear-gradient(135deg, #1a5f7a, #2c9c7c);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(26, 95, 122, 0.2);
 }
 
 .step-circle.completed {
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  background: #2c9c7c;
+  border-color: transparent;
   color: white;
 }
 
 .step-line {
-  width: 50px;
+  width: 60px;
   height: 2px;
-  background: rgba(255, 248, 225, 0.2);
-  margin: 0 8px;
+  background: #e4e8f0;
+  margin: 0;
 }
 
 .step-line.completed {
-  background: linear-gradient(90deg, #4caf50, #f5a623);
+  background: linear-gradient(90deg, #1a5f7a, #2c9c7c);
 }
 
 .step-label {
   font-size: 0.7rem;
-  margin-top: 6px;
-  color: rgba(255, 248, 225, 0.6);
+  margin-top: 8px;
+  color: #8e9eae;
+  font-weight: 500;
 }
 
 .step-label.active {
-  color: #f5a623;
-  font-weight: 600;
+  color: #1a5f7a;
 }
 
-/* Kart stilleri - tarımsal tema */
+/* Kart */
 .card {
-  background: linear-gradient(135deg, #fffaf0, #fef5e7);
+  background: #ffffff;
   border-radius: 24px;
   padding: 32px;
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 0.5s ease-out;
-  border: 1px solid rgba(200, 180, 100, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '🌾';
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 60px;
-  opacity: 0.05;
-  pointer-events: none;
+  margin: 0 20px 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  animation: fadeInUp 0.3s ease;
 }
 
 .card-header {
@@ -165,27 +152,27 @@
 .card-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  background: linear-gradient(135deg, #e8f4f0, #d4ece4);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+  font-size: 1.4rem;
 }
 
 .card-header h2 {
-  font-size: 1.8rem;
-  color: #2d3e2b;
+  font-size: 1.4rem;
   font-weight: 600;
+  color: #1a2a3a;
+  margin: 0;
 }
 
 .card-subtitle {
-  color: #6b5a3e;
+  color: #8e9eae;
+  font-size: 0.9rem;
   margin-bottom: 28px;
-  font-size: 1rem;
-  border-left: 3px solid #f5a623;
-  padding-left: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eef2f7;
 }
 
 /* Butonlar */
@@ -197,55 +184,53 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #f5a623, #e8931e);
-  color: #2d3e2b;
+  background: linear-gradient(135deg, #1a5f7a, #2c9c7c);
+  color: white;
   border: none;
   padding: 12px 28px;
   border-radius: 40px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 10px rgba(245, 166, 35, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(26, 95, 122, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(245, 166, 35, 0.4);
+  box-shadow: 0 6px 16px rgba(26, 95, 122, 0.25);
 }
 
 .btn-secondary {
-  background: rgba(45, 62, 43, 0.08);
-  color: #4a5b3e;
-  border: 1px solid #d4c4a8;
+  background: #ffffff;
+  color: #5a6e7c;
+  border: 1px solid #e0e6ed;
   padding: 12px 28px;
   border-radius: 40px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(45, 62, 43, 0.15);
-  border-color: #c8b080;
+  border-color: #1a5f7a;
+  color: #1a5f7a;
+  background: #f8fafc;
 }
 
-/* Input stilleri */
+/* Inputlar */
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .input-group label {
   display: block;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #4a5b3e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8e9eae;
   margin-bottom: 8px;
 }
 
@@ -253,12 +238,13 @@
 .input-group select,
 .input-group textarea {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e8dcc8;
-  border-radius: 16px;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  background: white;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 2px solid #eef2f7;
+  font-size: 1rem;
+  background: transparent;
+  color: #1a2a3a;
+  transition: all 0.2s ease;
   font-family: inherit;
 }
 
@@ -266,33 +252,32 @@
 .input-group select:focus,
 .input-group textarea:focus {
   outline: none;
-  border-color: #f5a623;
-  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+  border-bottom-color: #2c9c7c;
 }
 
 /* Çıkış butonu */
 .logout-btn {
-  background: rgba(255, 248, 225, 0.15);
-  color: #f5e6a3;
-  border: 1px solid rgba(200, 180, 100, 0.4);
+  background: #f0f2f5;
+  border: none;
   padding: 8px 20px;
   border-radius: 40px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
+  color: #5a6e7c;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .logout-btn:hover {
-  background: rgba(255, 248, 225, 0.25);
-  transform: translateY(-2px);
+  background: #e4e8f0;
+  color: #1a5f7a;
 }
 
 /* Grid */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .grid-2-full {
@@ -301,8 +286,17 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .app-header {
+    padding: 16px 20px;
+  }
+
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+
   .grid-2 {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .grid-2-full {
@@ -310,19 +304,15 @@
   }
 
   .card {
+    margin: 0 16px 24px;
     padding: 20px;
   }
 
   .steps-indicator {
-    padding: 8px 16px;
+    margin: 24px 0;
   }
 
   .step-line {
-    width: 20px;
-  }
-
-  .tab-btn {
-    padding: 8px 20px;
-    font-size: 0.85rem;
+    width: 30px;
   }
 }

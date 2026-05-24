@@ -1,200 +1,210 @@
 .reports-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 24px;
 }
 
 .reports-header {
-  text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .reports-header h1 {
-  font-size: 2rem;
-  background: linear-gradient(135deg, #f5e6a3, #c8a951);
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2d6a4f, #d4a373);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .reports-header p {
-  color: #e8d5a3;
+  font-size: 0.85rem;
+  color: #8a9a7e;
 }
 
-/* Filtre Kartı */
+/* Filtre kartı */
 .filter-card {
-  background: linear-gradient(135deg, #fffaf0, #fef5e7);
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 24px;
   padding: 24px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(200, 180, 100, 0.3);
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(45, 106, 79, 0.08);
 }
 
 .filter-card h3 {
-  margin-bottom: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
   color: #2d3e2b;
 }
 
 .filter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .filter-group label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8a9a7e;
+  margin-bottom: 8px;
   display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #4a5b3e;
-  margin-bottom: 6px;
 }
 
 .filter-group select {
   width: 100%;
-  padding: 10px 12px;
-  border: 2px solid #e8dcc8;
-  border-radius: 12px;
-  background: white;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #f0e8dc;
+  color: #2d3e2b;
   font-size: 0.9rem;
 }
 
 .filter-group select:focus {
   outline: none;
-  border-color: #f5a623;
+  border-bottom-color: #40916c;
 }
 
 .filter-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
 }
 
 .btn-reset {
-  background: rgba(45, 62, 43, 0.08);
-  border: 1px solid #d4c4a8;
-  padding: 8px 20px;
+  background: #fef9f0;
+  border: none;
+  padding: 8px 24px;
   border-radius: 40px;
-  cursor: pointer;
+  font-size: 0.75rem;
   font-weight: 500;
-  transition: all 0.3s ease;
-  color: #4a5b3e;
+  cursor: pointer;
+  color: #6a7a5e;
+  transition: all 0.2s ease;
 }
 
 .btn-reset:hover {
-  background: rgba(45, 62, 43, 0.15);
+  background: #e8f5e9;
+  color: #2d6a4f;
 }
 
 .filter-info {
   background: #e8f5e9;
   padding: 8px 16px;
-  border-radius: 30px;
-  color: #2e7d32;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  color: #40916c;
   font-weight: 500;
-  font-size: 0.9rem;
 }
 
-/* İstatistik Kartları */
+/* İstatistik kartları */
 .reports-container .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .reports-container .stat-card {
-  background: linear-gradient(135deg, #fffaf0, #fef5e7);
-  border-radius: 20px;
-  padding: 20px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
   text-align: center;
-  transition: transform 0.3s ease;
-  border: 1px solid rgba(200, 180, 100, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(45, 106, 79, 0.08);
+  transition: transform 0.2s ease;
 }
 
 .reports-container .stat-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .reports-container .stat-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 12px;
 }
 
 .reports-container .stat-value {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #f5a623, #e8931e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #2d6a4f;
+  margin-bottom: 4px;
 }
 
 .reports-container .stat-label {
-  font-size: 0.8rem;
-  color: #6b5a3e;
-  margin-top: 6px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8a9a7e;
 }
 
-/* Rapor Bölümleri */
+/* Rapor bölümleri */
 .report-section {
-  background: linear-gradient(135deg, #fffaf0, #fef5e7);
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 24px;
   padding: 24px;
-  margin-bottom: 30px;
-  border: 1px solid rgba(200, 180, 100, 0.3);
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(45, 106, 79, 0.08);
 }
 
 .report-section h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
   margin-bottom: 20px;
   color: #2d3e2b;
-  font-size: 1.2rem;
 }
 
-/* Ürün Grid */
+/* Ürün grid */
 .urun-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 16px;
 }
 
 .urun-card {
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  background: #fef9f0;
   border-radius: 20px;
-  padding: 16px;
+  padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: all 0.2s ease;
+  cursor: default;
 }
 
 .urun-card:hover {
-  transform: translateY(-3px);
+  background: #f5f0e0;
+  transform: translateY(-2px);
 }
 
 .urun-emoji {
   font-size: 2rem;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .urun-ad {
-  font-weight: 700;
-  color: #92400e;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #2d3e2b;
   margin-bottom: 6px;
 }
 
 .urun-ton {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #78350f;
+  color: #40916c;
 }
 
 .urun-kayit {
-  font-size: 0.7rem;
-  color: #b45309;
+  font-size: 0.65rem;
+  color: #a09880;
+  margin-top: 4px;
 }
 
-/* İlçe Grid */
+/* İlçe grid */
 .ilce-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -202,26 +212,28 @@
 }
 
 .ilce-card {
-  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  background: #fef9f0;
   border-radius: 20px;
   padding: 16px;
 }
 
 .ilce-ad {
-  font-weight: 700;
-  color: #1e40af;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #2d3e2b;
   margin-bottom: 8px;
 }
 
 .ilce-ton {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1e3a8a;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #40916c;
 }
 
 .ilce-kayit {
-  font-size: 0.7rem;
-  color: #3b82f6;
+  font-size: 0.65rem;
+  color: #a09880;
+  margin-top: 4px;
 }
 
 /* Tablo */
@@ -237,63 +249,57 @@
 .kayit-table th {
   text-align: left;
   padding: 14px;
-  background: #f0ebdd;
-  color: #4a5b3e;
-  font-weight: 600;
-  font-size: 0.8rem;
-  border-bottom: 2px solid #d4c4a8;
+  background: #fef9f0;
+  color: #8a9a7e;
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #f0e8dc;
 }
 
 .kayit-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid #e8dcc8;
-  color: #4a5b3e;
+  padding: 14px;
+  border-bottom: 1px solid #f0e8dc;
+  color: #2d3e2b;
   font-size: 0.85rem;
 }
 
-.kayit-table tr:hover {
-  background: #fef9ef;
+.kayit-table tr:hover td {
+  background: #fef9f0;
 }
 
 .mini-progress {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-width: 80px;
+  gap: 10px;
 }
 
 .mini-progress-fill {
-  height: 6px;
-  width: 50px;
-  background: linear-gradient(90deg, #4caf50, #f5a623);
-  border-radius: 10px;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #2d6a4f, #d4a373);
+  border-radius: 4px;
 }
 
 .empty-message {
   text-align: center;
-  padding: 40px;
-  color: #8b7a5a;
-}
-
-.loading {
-  text-align: center;
-  padding: 60px;
-  font-size: 1.2rem;
-  color: #e8d5a3;
+  padding: 48px;
+  color: #c4b8a0;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 768px) {
-  .filter-grid {
-    grid-template-columns: 1fr;
+  .reports-container {
+    padding: 16px;
   }
 
   .urun-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .kayit-table th,
-  .kayit-table td {
-    padding: 8px;
-    font-size: 0.7rem;
+  .filter-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }

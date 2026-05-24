@@ -137,7 +137,7 @@ const Reports = () => {
   return (
     <div className='reports-container'>
       <div className='reports-header'>
-        <h1>📊 Depo Analiz ve Raporlama</h1>
+        <h1> Depo Analiz ve Raporlama</h1>
         <p>Tüm kayıtları filtreleyerek detaylı analiz yapın</p>
       </div>
 
