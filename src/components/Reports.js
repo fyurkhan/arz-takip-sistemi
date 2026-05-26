@@ -219,8 +219,44 @@ const Reports = () => {
           <button className='btn-reset' onClick={resetFilters}>
             Sıfırla
           </button>
-          <div className='filter-info'>
-            <span>🎯 {toplamKayit} kayıt listeleniyor</span>
+          <div className='filter-actions'>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button className='btn-reset' onClick={resetFilters}>
+                Sıfırla
+              </button>
+              <button
+                className='btn-pdf'
+                onClick={async () => {
+                  const istatistikler = {
+                    toplamKayit: filtrelenmisKayitlar.length,
+                    toplamTon: filtrelenmisKayitlar.reduce(
+                      (sum, k) => sum + (k.guncel_ton || 0),
+                      0,
+                    ),
+                    toplamKapasite: filtrelenmisKayitlar.reduce(
+                      (sum, k) => sum + (k.max_kapasite || 0),
+                      0,
+                    ),
+                    ortalamaDoluluk:
+                      toplamKapasite > 0
+                        ? Math.round((toplamTon / toplamKapasite) * 100)
+                        : 0,
+                  };
+                  const { generateRaporPDF } =
+                    await import('../utils/pdfGenerator');
+                  await generateRaporPDF(
+                    filtrelenmisKayitlar,
+                    filtreler,
+                    istatistikler,
+                  );
+                }}
+              >
+                📄 PDF Oluştur
+              </button>
+            </div>
+            <div className='filter-info'>
+              <span>🎯 {toplamKayit} kayıt listeleniyor</span>
+            </div>
           </div>
         </div>
       </div>
