@@ -13,7 +13,6 @@ const Reports = () => {
   });
   const [filtrelenmisKayitlar, setFiltrelenmisKayitlar] = useState([]);
 
-  // Tüm kayıtları çek
   useEffect(() => {
     fetchKayitlar();
   }, []);
@@ -34,7 +33,6 @@ const Reports = () => {
     setLoading(false);
   };
 
-  // Filtreleme işlemi
   useEffect(() => {
     let filtered = [...kayitlar];
 
@@ -56,7 +54,6 @@ const Reports = () => {
     setFiltrelenmisKayitlar(filtered);
   }, [filtreler, kayitlar]);
 
-  // Filtreleri sıfırla
   const resetFilters = () => {
     setFiltreler({
       il: '',
@@ -66,7 +63,6 @@ const Reports = () => {
     });
   };
 
-  // İstatistikler
   const toplamTon = filtrelenmisKayitlar.reduce(
     (sum, k) => sum + (k.guncel_ton || 0),
     0,
@@ -79,7 +75,6 @@ const Reports = () => {
     toplamKapasite > 0 ? Math.round((toplamTon / toplamKapasite) * 100) : 0;
   const toplamKayit = filtrelenmisKayitlar.length;
 
-  // Ürün bazında istatistik
   const urunIstatistik = () => {
     const istatistik = {};
     filtrelenmisKayitlar.forEach((kayit) => {
@@ -98,7 +93,6 @@ const Reports = () => {
     return istatistik;
   };
 
-  // İlçe bazında istatistik
   const ilceIstatistik = () => {
     const istatistik = {};
     filtrelenmisKayitlar.forEach((kayit) => {
@@ -137,11 +131,10 @@ const Reports = () => {
   return (
     <div className='reports-container'>
       <div className='reports-header'>
-        <h1> Depo Analiz ve Raporlama</h1>
+        <h1>📊 Depo Analiz ve Raporlama</h1>
         <p>Tüm kayıtları filtreleyerek detaylı analiz yapın</p>
       </div>
 
-      {/* Filtre Kartı */}
       <div className='filter-card'>
         <h3>🔍 Filtreleme Seçenekleri</h3>
         <div className='filter-grid'>
@@ -216,52 +209,46 @@ const Reports = () => {
         </div>
 
         <div className='filter-actions'>
-          <button className='btn-reset' onClick={resetFilters}>
-            Sıfırla
-          </button>
-          <div className='filter-actions'>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button className='btn-reset' onClick={resetFilters}>
-                Sıfırla
-              </button>
-              <button
-                className='btn-pdf'
-                onClick={async () => {
-                  const istatistikler = {
-                    toplamKayit: filtrelenmisKayitlar.length,
-                    toplamTon: filtrelenmisKayitlar.reduce(
-                      (sum, k) => sum + (k.guncel_ton || 0),
-                      0,
-                    ),
-                    toplamKapasite: filtrelenmisKayitlar.reduce(
-                      (sum, k) => sum + (k.max_kapasite || 0),
-                      0,
-                    ),
-                    ortalamaDoluluk:
-                      toplamKapasite > 0
-                        ? Math.round((toplamTon / toplamKapasite) * 100)
-                        : 0,
-                  };
-                  const { generateRaporPDF } =
-                    await import('../utils/pdfGenerator');
-                  await generateRaporPDF(
-                    filtrelenmisKayitlar,
-                    filtreler,
-                    istatistikler,
-                  );
-                }}
-              >
-                📄 PDF Oluştur
-              </button>
-            </div>
-            <div className='filter-info'>
-              <span>🎯 {toplamKayit} kayıt listeleniyor</span>
-            </div>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button className='btn-reset' onClick={resetFilters}>
+              Sıfırla
+            </button>
+            <button
+              className='btn-pdf'
+              onClick={async () => {
+                const istatistikler = {
+                  toplamKayit: filtrelenmisKayitlar.length,
+                  toplamTon: filtrelenmisKayitlar.reduce(
+                    (sum, k) => sum + (k.guncel_ton || 0),
+                    0,
+                  ),
+                  toplamKapasite: filtrelenmisKayitlar.reduce(
+                    (sum, k) => sum + (k.max_kapasite || 0),
+                    0,
+                  ),
+                  ortalamaDoluluk:
+                    toplamKapasite > 0
+                      ? Math.round((toplamTon / toplamKapasite) * 100)
+                      : 0,
+                };
+                const { generateRaporPDF } =
+                  await import('../utils/pdfGenerator');
+                await generateRaporPDF(
+                  filtrelenmisKayitlar,
+                  filtreler,
+                  istatistikler,
+                );
+              }}
+            >
+              📄 PDF Oluştur
+            </button>
+          </div>
+          <div className='filter-info'>
+            <span>🎯 {toplamKayit} kayıt listeleniyor</span>
           </div>
         </div>
       </div>
 
-      {/* İstatistik Kartları */}
       <div className='stats-grid'>
         <div className='stat-card'>
           <div className='stat-icon'>📦</div>
@@ -289,7 +276,6 @@ const Reports = () => {
         </div>
       </div>
 
-      {/* Ürün Bazında Rapor */}
       <div className='report-section'>
         <h3>🌾 Ürün Bazında Stok Durumu</h3>
         <div className='urun-grid'>
@@ -314,12 +300,8 @@ const Reports = () => {
             </div>
           ))}
         </div>
-        {Object.keys(urunIstatistik()).length === 0 && (
-          <div className='empty-message'>Henüz ürün kaydı bulunmuyor</div>
-        )}
       </div>
 
-      {/* İlçe Bazında Rapor */}
       <div className='report-section'>
         <h3>🗺️ İlçe Bazında Depolama</h3>
         <div className='ilce-grid'>
@@ -335,14 +317,8 @@ const Reports = () => {
             </div>
           ))}
         </div>
-        {ilceIstatistik().length === 0 && (
-          <div className='empty-message'>
-            Henüz ilçe bazında kayıt bulunmuyor
-          </div>
-        )}
       </div>
 
-      {/* Detaylı Kayıt Listesi */}
       <div className='report-section'>
         <h3>📋 Detaylı Kayıt Listesi</h3>
         <div className='kayit-table-container'>
@@ -390,9 +366,6 @@ const Reports = () => {
             </tbody>
           </table>
         </div>
-        {filtrelenmisKayitlar.length === 0 && (
-          <div className='empty-message'>Kayıt bulunmuyor</div>
-        )}
       </div>
     </div>
   );

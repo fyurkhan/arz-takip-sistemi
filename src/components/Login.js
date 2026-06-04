@@ -10,13 +10,27 @@ const Login = ({ onLogin }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // İzinli e-posta listesi
+  const izinliEpostalar = [
+    'osmancngt003@gmail.com',
+    'frkntrkcn42@hotmail.com', // Kendi epostanı ekle!
+  ];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
     if (isRegister) {
-      // Kayıt işlemi
+      // Kayıt olmadan önce e-posta kontrolü
+      if (!izinliEpostalar.includes(email.toLowerCase())) {
+        setError(
+          'Bu e-posta adresi ile kayıt olamazsınız. Lütfen yetkili kişiyle iletişime geçin.',
+        );
+        setLoading(false);
+        return;
+      }
+
       const { error: signUpError } = await supabase.auth.signUp({
         email,
         password,
@@ -35,7 +49,15 @@ const Login = ({ onLogin }) => {
         setFullName('');
       }
     } else {
-      // Giriş işlemi
+      // Giriş yapmadan önce e-posta kontrolü
+      if (!izinliEpostalar.includes(email.toLowerCase())) {
+        setError(
+          'Bu e-posta adresi ile giriş yapamazsınız. Lütfen yetkili kişiyle iletişime geçin.',
+        );
+        setLoading(false);
+        return;
+      }
+
       const { error: signInError } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -44,8 +66,7 @@ const Login = ({ onLogin }) => {
       if (signInError) {
         setError(signInError.message);
       } else {
-        // Giriş başarılı - session otomatik olarak App.js'de yakalanacak
-        window.location.reload(); // Sayfayı yenile, App.js session'ı alsın
+        window.location.reload();
       }
     }
     setLoading(false);
@@ -116,6 +137,19 @@ const Login = ({ onLogin }) => {
               ? 'Zaten hesabın var mı? Giriş yap'
               : 'Hesabın yok mu? Kayıt ol'}
           </button>
+        </div>
+
+        <div className='demo-login'>
+          <button
+            onClick={() => {
+              setEmail('admin@arztakip.com');
+              setPassword('demo123');
+            }}
+            className='demo-button'
+          >
+            🚀 Demo Hesap ile Giriş Yap
+          </button>
+          <div className='demo-info'>(admin@arztakip.com / demo123)</div>
         </div>
 
         <div className='auth-status'>

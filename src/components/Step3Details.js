@@ -9,6 +9,7 @@ const urunKategorileri = [
     secenekler: [
       { value: 'Patates (Yemelik)', label: 'Yemelik' },
       { value: 'Patates (Tohumluk)', label: 'Tohumluk' },
+      { value: 'Patates (Endüstriyel)', label: 'Endüstriyel' },
     ],
   },
   {
@@ -25,6 +26,8 @@ const urunKategorileri = [
     secenekler: [
       { value: 'Buğday (Yemelik)', label: 'Yemelik' },
       { value: 'Buğday (Tohumluk)', label: 'Tohumluk' },
+      { value: 'Buğday (Endüstriyel)', label: 'Endüstriyel' },
+      { value: 'Buğday (Makarnalık)', label: 'Makarnalık' },
     ],
   },
   {
