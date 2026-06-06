@@ -139,19 +139,6 @@ const Login = ({ onLogin }) => {
           </button>
         </div>
 
-        <div className='demo-login'>
-          <button
-            onClick={() => {
-              setEmail('admin@arztakip.com');
-              setPassword('demo123');
-            }}
-            className='demo-button'
-          >
-            🚀 Demo Hesap ile Giriş Yap
-          </button>
-          <div className='demo-info'>(admin@arztakip.com / demo123)</div>
-        </div>
-
         <div className='auth-status'>
           <span className='status-dot'></span>
           Supabase Bağlantısı: Aktif
