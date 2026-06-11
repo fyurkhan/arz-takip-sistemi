@@ -13,7 +13,8 @@ const Login = ({ onLogin }) => {
   // İzinli e-posta listesi
   const izinliEpostalar = [
     'osmancngt003@gmail.com',
-    'frkntrkcn42@hotmail.com', // Kendi epostanı ekle!
+    'furkanmete01@gmail.com',
+    'frkntrkcn42@hotmail.com',
   ];
 
   const handleSubmit = async (e) => {
